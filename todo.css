@@ -16,12 +16,22 @@ body{
     width: 150px;
 }
 
+.error {
+    display: none;
+    text-align: center;
+    font-size: 30px;
+    color: red;
+    font-weight: bold;
+}
+
 #todolist .todo {
     display: flex;
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+
 
 #todolist .todo [type=checkbox]:checked + label {
     text-decoration: line-through;
