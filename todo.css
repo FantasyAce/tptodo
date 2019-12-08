@@ -1,0 +1,33 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#todolist-container {
+    text-align: center;
+}
+
+#add-todo {
+    margin: 20px;
+}
+
+#add-todo > input {
+    width: 150px;
+}
+
+#todolist .todo {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#todolist .todo [type=checkbox]:checked + label {
+    text-decoration: line-through;
+
+}
+
+#todolist .todo:not(:last-child) {
+    border-bottom: 3px ridge black;
+}

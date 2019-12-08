@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="todo.css">
+    <title>Todo List</title>
 </head>
 <body>
+    <section id="todolist-container">
+
+        <h1>Liste de Corvés</h1>
+
+        <form name="todo" action="#confirm" id="add-todo" method="GET">
+            <input required name="todoInput" type="text" placeholder="Corvés a réaliser">
+            <button type="submit">Enregistrer</button>
+        </form>
+
+        <div id="todolist"></div>
+
+    </section>
 
     
 
