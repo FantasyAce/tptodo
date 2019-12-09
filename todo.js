@@ -1,10 +1,20 @@
+let cpt = 0 ;
+// let todo = document.getElementById("todo")
+
+const todo1 = localStorage.getItem('todo1')
+console.log(todo1)
+
+if(todo1) {
+    todo = JSON.parse(todo1);
+}
+
 function createTodo(todoInput) {
     const todoHtml = `
-        <div class="todo">
-            <input type="checkbox" id="checkbox">
-            <label for="checkbox"> ${todoInput}</label>
-            <button onclick="closeTodo(this.previousElementSibling.previousElementSibling, this.parentNode)" class="bt-close">&times;</button>
-        </div>
+    <div class="todo">
+    <input type="checkbox" id="checkbox-${cpt}">
+    <label for="checkbox"> ${todoInput}</label>
+    <button onclick="closeTodo(this.previousElementSibling.previousElementSibling, this.parentNode)" class="bt-close">&times;</button>
+    </div>
     `;
     
     document.getElementById('todolist').innerHTML += todoHtml
@@ -15,10 +25,10 @@ function createTodo(todoInput) {
     }
 
     function closeTodo(checkboxTag, todoTag) {
-       if(checkboxTag.checked) {
+       if(checkboxTag.checked === false) {
         const response = confirm('Es tu sure?');
         if(!response) return;
-       } document.getElementById('todolist').removeChild(todoTag)
+       } document.getElementById('todolist').removeChild(todoTag);
     }
 
 document.forms.todo.addEventListener(
@@ -26,7 +36,10 @@ document.forms.todo.addEventListener(
     function(e) {
         e.preventDefault();
         if(checkInput(this.todoInput.value)){
+            localStorage.setItem('todo1', JSON.stringify(todoInput));
             createTodo(this.todoInput.value);
+            document.forms.todo.reset();
+            cpt ++;
         }else{
          const errorMsg = document.getElementById('error');
          errorMsg.style.display = 'block';
