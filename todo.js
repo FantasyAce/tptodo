@@ -1,15 +1,17 @@
 let cpt = 0 ;
 // let todo = document.getElementById("todo")
 
-const todo1 = localStorage.getItem('todo1')
+let todo1 = localStorage.getItem('todo1')
 // console.log(todo1)
 
-if(todo1) {
-    todo = JSON.parse(todo1);
-    console.log(todo1)
-}
+    if(todo1) {
+        todo = JSON.parse(todo1);
+        window.onload = todo
+        console.log(todo)
+        
+    }
 
- 
+}
 function createTodo(todoInput) {
     const todoHtml = `
     <div class="todo">
@@ -19,7 +21,7 @@ function createTodo(todoInput) {
     </div>
     `;
     
-    document.getElementById('todolist').innerHTML += todoHtml
+    document.getElementById('todolist').innerHTML += todoHtml 
 }
 
     function checkInput(val) {
@@ -28,7 +30,7 @@ function createTodo(todoInput) {
 
     function closeTodo(checkboxTag, todoTag) {
        if(checkboxTag.checked === false) {
-        const response = confirm('Es tu sure?');
+            const response = confirm('Es tu sure?');
         if(!response) return;
        } document.getElementById('todolist').removeChild(todoTag);
     }
@@ -43,11 +45,11 @@ document.forms.todo.addEventListener(
             document.forms.todo.reset();
             cpt ++;
         }else{
-         const errorMsg = document.getElementById('error');
-         errorMsg.style.display = 'block';
-         setTimeout(() => {
-             errorMsg.style.display = 'none';
-         },2500 );
+            const errorMsg = document.getElementById('error');
+            errorMsg.style.display = 'block';
+            setTimeout(() => {
+                errorMsg.style.display = 'none';
+            },2500 );
         }
         
     }
