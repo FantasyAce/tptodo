@@ -2,12 +2,14 @@ let cpt = 0 ;
 // let todo = document.getElementById("todo")
 
 const todo1 = localStorage.getItem('todo1')
-console.log(todo1)
+// console.log(todo1)
 
 if(todo1) {
     todo = JSON.parse(todo1);
+    console.log(todo1)
 }
 
+ 
 function createTodo(todoInput) {
     const todoHtml = `
     <div class="todo">
@@ -36,7 +38,7 @@ document.forms.todo.addEventListener(
     function(e) {
         e.preventDefault();
         if(checkInput(this.todoInput.value)){
-            localStorage.setItem('todo1', JSON.stringify(todoInput));
+            localStorage.setItem('todo1', JSON.stringify(todoInput.value));
             createTodo(this.todoInput.value);
             document.forms.todo.reset();
             cpt ++;
