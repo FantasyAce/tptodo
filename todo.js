@@ -14,7 +14,7 @@ function createTodo(todoInput) {
     const todoHtml = `
     <div class="todo">
     <input type="checkbox" id="checkbox-${cpt}">
-    <label for="checkbox"> ${todoInput}</label>
+    <label for="checkbox-${cpt}"> ${todoInput}</label>
     <button onclick="closeTodo(this.previousElementSibling.previousElementSibling, this.parentNode)" class="bt-close">&times;</button>
     </div>
     `;
